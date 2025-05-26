@@ -1,0 +1,72 @@
+basePath: /
+definitions:
+  dto.CouponGenerateRequest:
+    properties:
+      campaign_id:
+        type: integer
+      length:
+        type: integer
+      prefix:
+        type: string
+      quantity:
+        type: integer
+      suffix:
+        type: string
+    type: object
+  presentation.JSONResponse:
+    properties:
+      data: {}
+      error:
+        type: boolean
+      message:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is Chargeback API. Is possible to open a new chargeback.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Chargeback API
+  version: "1.0"
+paths:
+  /v1/coupon-generate:
+    post:
+      consumes:
+      - application/json
+      description: Generate coupons for a campaign
+      parameters:
+      - description: Data of the coupon generate
+        in: body
+        name: chargeback
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CouponGenerateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/presentation.JSONResponse'
+        "202":
+          description: Accepted
+          schema:
+            $ref: '#/definitions/presentation.JSONResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/presentation.JSONResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/presentation.JSONResponse'
+      summary: Generate coupons for a campaign
+      tags:
+      - chargeback
+swagger: "2.0"

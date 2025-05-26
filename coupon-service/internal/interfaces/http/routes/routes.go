@@ -1,6 +1,6 @@
-// @title Chargeback API
+// @title Coupon Service
 // @version 1.0
-// @description This is Chargeback API. Is possible to open a new chargeback.
+// @description This is Coupon Service. Is possible to create new coupons.
 // @termsOfService http://swagger.io/terms/
 
 // @contact.name API Support
